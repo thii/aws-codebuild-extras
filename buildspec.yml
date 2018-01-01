@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     commands:
-      - sh $(curl -fsSL https://raw.githubusercontent.com/thii/aws-codebuild-extras/master/install)
+      - bash -c "$(curl -fsSL https://raw.githubusercontent.com/thii/aws-codebuild-extras/master/install)"
   build:
     commands:
       - # Do nothing
