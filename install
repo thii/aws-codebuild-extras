@@ -10,6 +10,7 @@ if [ "$CODEBUILD_GIT_BRANCH" = "" ] ; then
 fi
 
 export CODEBUILD_GIT_CLEAN_BRANCH="$(echo $CODEBUILD_GIT_BRANCH | tr '/' '.')"
+export CODEBUILD_GIT_ESCAPED_BRANCH="$(echo $CODEBUILD_GIT_CLEAN_BRANCH | sed -e 's/[]\/$*.^[]/\\\\&/g')"
 export CODEBUILD_GIT_MESSAGE="$(git log -1 --pretty=%B)"
 export CODEBUILD_GIT_AUTHOR="$(git log -1 --pretty=%an)"
 export CODEBUILD_GIT_AUTHOR_EMAIL="$(git log -1 --pretty=%ae)"
