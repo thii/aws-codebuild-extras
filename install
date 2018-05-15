@@ -1,5 +1,8 @@
 #!/bin/sh
 
+export CODEBUILD_ACCOUNT_ID=$(aws sts get-caller-identity --query 'Account' --output text)
+echo "==> CODEBUILD_ACCOUNT_ID = $CODEBUILD_ACCOUNT_ID"
+
 export CI=true
 export CODEBUILD=true
 
